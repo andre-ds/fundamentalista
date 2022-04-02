@@ -8,7 +8,6 @@ RUN /opt/conda/bin/conda update -n base -c defaults conda && \
     /opt/conda/bin/conda install openjdk=11.0.13 &&  \
     /opt/conda/bin/conda install pyspark=3.1.2 &&  \
     /opt/conda/bin/conda install boto3
-RUN sudo pip install python-dotenv
 EXPOSE 8080
 
 
