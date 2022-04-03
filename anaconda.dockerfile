@@ -1,6 +1,6 @@
 FROM continuumio/anaconda3
 MAINTAINER Andre Pruner
-RUN apt-get update && apt-get install nano && apt install pip 
+RUN apt-get update && apt-get install nano && sudo apt install pip 
 RUN /opt/conda/bin/conda update -n base -c defaults conda && \
     /opt/conda/bin/conda install python=3.9.7 && \
     /opt/conda/bin/conda install pandas=1.3.4 && \
