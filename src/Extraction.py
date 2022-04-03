@@ -13,10 +13,9 @@ from pyspark.sql.functions import col, quarter, to_date, year, when, to_date, as
 class Extraction:
 
 
-    def __init__(self, s3env, spark_environment):
+    def __init__(self, spark_environment):
         self._run()
         self._path_environment()
-        self.s3env = s3env
         self.spark_environment = spark_environment
 
     def _run(self):
@@ -85,13 +84,13 @@ class Extraction:
             dataset.write.format('parquet').mode('overwrite').save(os.path.join(self.PATH_RAW, saveFilename))
 
 
-    def load_bucket(self, bucket, PATH):
+    def load_bucket(self, s3env, bucket, PATH):
 
         for folder in os.listdir(PATH):
             files_foder = [file for file in os.listdir(os.path.join(PATH, folder))]
             for file in files_foder:
                 path = os.path.join(PATH, folder)
-                self.s3env.upload_file(Filename=f'{path}/{file}', Bucket=bucket, Key=f'{folder}/{file}')
+                s3env.upload_file(Filename=f'{path}/{file}', Bucket=bucket, Key=f'{folder}/{file}')
 
         print('[Files Uploaded.]')
 

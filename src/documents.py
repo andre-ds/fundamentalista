@@ -17,14 +17,6 @@ DTYPE_DFP_1 = {'CNPJ_CIA': 'object', 'VERSAO': 'int64', 'DENOM_CIA': 'object', '
                'MOEDA': 'object', 'ESCALA_MOEDA': 'object', 'ORDEM_EXERC': 'object', 'CD_CONTA': 'object', 'DS_CONTA': 'object', 'VL_CONTA': 'float64', 'ST_CONTA_FIXA': 'object'}
 DATES_DFP_1 = ['DT_REFER', 'DT_INI_EXERC', 'DT_FIM_EXERC']
 
-# S3 connection
-s3 = boto3.client(
-    service_name='s3',
-    aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
-    aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY')
-)
-
-
 years_list = ['2011', '2012', '2013', '2014', '2015',
               '2016', '2017', '2018', '2019', '2020', '2021']
 
