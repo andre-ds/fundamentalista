@@ -4,30 +4,36 @@ Este é um projeto cujo objetivo principal é o desenvolvimento de uma aplicaç�
 
 Os códigos têm a finalidade de realizar o provisionamento da infraestrutura necessária para armazenamento e execução das tarefas. Em um primeiro momento, as tarefas de extração de dados e pré-processamento serão realizadas localmente, no entanto, em um segundo momento, os códigos serão adaptados para funcionar 100% em cloud. A imagem a seguir apresenta o fluxo da aplicação de dados:
 
+## Estrutura dos Dados
+
 ![Pipeline de Dados](https://github.com/andre-ds/fundamentalist_analysis/blob/master/application-flow.png)
 
-## **Raw Data Ingestion** 
+### **Raw Data Ingestion** 
 
 A primeira etapa consiste na extração dos dados de empresas disponíveis na CVM e são armazenados na camada **Raw** do datalake na AWS.
 
-**Métodos**
-
-1. extraction_cvm
-2. unzippded_files
-3. saving_raw_data
-4. load_bucket
-
-## **Pre-processing**
+### **Pre-processing**
 
 Na segunda etapa, os dados são pré-processados e armazenados na camada **pre_processed** do datalake.
 
-**Métodos**
 
-1. pre_process_itr_dre
-2. load_bucket
+## Estrtura da Aplicação
+
+### Utils
+
+- extraction_cvm
+- unzippded_files
+- saving_raw_data
+- load_bucket
 
 
-## Dicionário de Dados
+### PreProcessing
+
+- pre_process_itr_dre
+
+
+
+## Dicionário de Dados Brutos CVM
 
 **Documentos: Formulário de Demonstrações Financeiras Padronizadas (DFP)**
 
