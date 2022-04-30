@@ -45,6 +45,8 @@ class Utils:
             os.mkdir(os.path.join(PATH_DATA, 'zipfiles'))
         if 'unzippedfiles' not in list_folders:
             os.mkdir(os.path.join(PATH_DATA, 'unzippedfiles'))
+        if 'auxiliary' not in list_folders:
+            os.mkdir(os.path.join(PATH_DATA, 'auxiliary'))
         # Getting paths
         self.PATH_ZIPFILES = os.path.join(PATH_DATA, 'zipfiles')
         self.PATH_UNZIPPEDFILES = os.path.join(PATH_DATA, 'unzippedfiles')
