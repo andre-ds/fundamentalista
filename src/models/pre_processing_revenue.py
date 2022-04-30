@@ -4,7 +4,7 @@ import re
 import pandas as pd
 import documents as dc
 from dotenv import load_dotenv
-from Extraction import Extraction
+from Utils import Utils
 from PreProcessing import PreProcessing
 from SparkEnvironment import SparkEnvironment
 from pyspark.sql.functions import col, quarter, to_date, year, when, to_date, asc, months_between, round, lit, concat,regexp_replace, udf, lower, lag, sum, upper, avg
@@ -16,7 +16,7 @@ from pyspark.sql.window import Window
 # Environment
 load_dotenv()
 sk = SparkEnvironment(session_type='local')
-ex = Extraction(s3env = dc.s3, spark_environment=sk.spark_environment)
+ex = Utils(s3env = dc.s3, spark_environment=sk.spark_environment)
 pp = PreProcessing(spark_environment=sk.spark_environment)
 
 # Oppen and append all datasets

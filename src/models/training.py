@@ -3,7 +3,7 @@ import pandas as pd
 import documents as dc
 import joblib
 from dotenv import load_dotenv
-from Extraction import Extraction
+from Utils import Utils
 from PreProcessing import PreProcessing
 from SparkEnvironment import SparkEnvironment
 from sklearn.ensemble import RandomForestRegressor
@@ -14,7 +14,7 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 # Environment
 load_dotenv()
 sk = SparkEnvironment(session_type='local')
-ex = Extraction(s3env = dc.s3, spark_environment=sk.spark_environment)
+ex = Utils(s3env = dc.s3, spark_environment=sk.spark_environment)
 pp = PreProcessing(spark_environment=sk.spark_environment)
 
 # Oppen Dataset

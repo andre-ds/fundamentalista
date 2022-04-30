@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 from dotenv import load_dotenv
-from Extraction import PreProcessing, Companies
+from Utils import PreProcessing, Companies
 import documents as dc
 import boto3
 

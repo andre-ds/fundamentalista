@@ -1,7 +1,7 @@
 import os
 import boto3
 from dotenv import load_dotenv
-from Extraction import Extraction
+from Utils import Utils
 from PreProcessing import PreProcessing
 from SparkEnvironment import SparkEnvironment
 import documents as dc
@@ -10,7 +10,7 @@ import documents as dc
 # Environment
 load_dotenv()
 sk = SparkEnvironment(session_type='local')
-ex = Extraction(spark_environment=sk.spark_environment)
+ex = Utils(spark_environment=sk.spark_environment)
 pp = PreProcessing(spark_environment=sk.spark_environment)
 
 # S3 connection
@@ -28,6 +28,7 @@ ex.saving_raw_data(dataType='itr_cia_aberta_DRE_con', filename='itr_dre', schema
 ex.load_bucket(s3env=s3, bucket='deepfi-raw', PATH=ex.PATH_RAW)
 
 # Pre-processing data
+ex.check_auxiliary_files(bucket='deepfi-auxiliary-data')
 pp.pre_process_itr_dre(dataType='itr_dre', years_list=dc.years_list)
 ex.load_bucket(s3env=s3, bucket='deepfi-pre-processed', PATH=ex.PATH_PRE_PROCESSED)
 

@@ -1,5 +1,7 @@
 import os
 import re
+import boto3
+import botocore
 import pandas as pd
 import urllib.request
 import zipfile
@@ -10,7 +12,7 @@ from pyspark.sql.types import IntegerType
 from pyspark.sql.functions import col, quarter, to_date, year, when, to_date, asc, months_between, round
 
 
-class Extraction:
+class Utils:
 
 
     def __init__(self, spark_environment):
@@ -49,7 +51,28 @@ class Extraction:
         self.PATH_RAW = os.path.join(PATH_DATA, 'raw')
         self.PATH_PRE_PROCESSED = os.path.join(PATH_DATA, 'pre-processed')
         self.PATH_AUXILIARY = os.path.join(PATH_DATA, 'auxiliary')
+
         print('[Environment Cheked.]')
+
+
+    def check_auxiliary_files(self, bucket:str):
+        
+        def func(filename:str, bucket:str):
+            if filename not in os.listdir(self.PATH_AUXILIARY):
+                try:
+                    s3resource = boto3.resource('s3')
+                    s3resource.Bucket(bucket).download_file(filename, os.path.join(self.PATH_AUXILIARY, filename))
+                except botocore.exceptions.ClientError as e:
+                    if e.response['Error']['Code'] == "404":
+                        print("The object does not exist.")
+                    else:
+                        raise
+        
+        auxiliary_files = ['pp_code_dre_2022_01_04.csv']
+        for file in auxiliary_files:
+            func(filename=file, bucket=bucket)
+
+
 
     def extraction_cvm(self, dataType:str, years_list:list):
 

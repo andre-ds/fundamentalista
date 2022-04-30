@@ -1,12 +1,12 @@
 import os
 import re
 import pandas as pd
-from Extraction import Extraction
+from Utils import Utils
 from pyspark.sql.types import IntegerType
 from pyspark.sql.functions import col, quarter, to_date, year, when, to_date, asc, months_between, round, concat, lit, udf
 
 
-class PreProcessing(Extraction):
+class PreProcessing(Utils):
 
     def __init__(self, spark_environment):
         self._run()
