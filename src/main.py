@@ -20,13 +20,13 @@ s3 = boto3.client(
     aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY')
 )
 
-# Extracting Data
-# alldataType = ['registration', 'dfp', 'itr']
+# Data extraction for raw layer
 dataType = ['registration','itr']
 ex.extraction_cvm(dataType=dataType, years_list=dc.years_list)
 ex.unzippded_files(dataType=dataType)
 ex.saving_raw_data(dataType='itr_cia_aberta_DRE_con', filename='itr_dre', schema=dc.itr_dre)
 ex.load_bucket(s3env=s3, bucket='deepfi-raw', PATH=ex.PATH_RAW)
+
 # Pre-processing data
 pp.pre_process_itr_dre(dataType='itr_dre', years_list=dc.years_list)
 ex.load_bucket(s3env=s3, bucket='deepfi-pre-processed', PATH=ex.PATH_PRE_PROCESSED)

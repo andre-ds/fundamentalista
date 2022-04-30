@@ -10,9 +10,22 @@ Os códigos têm a finalidade de realizar o provisionamento da infraestrutura ne
 
 A primeira etapa consiste na extração dos dados de empresas disponíveis na CVM e são armazenados na camada **Raw** do datalake na AWS.
 
+**Métodos**
+
+1. extraction_cvm
+2. unzippded_files
+3. saving_raw_data
+4. load_bucket
+
 ## **Pre-processing**
 
 Na segunda etapa, os dados são pré-processados e armazenados na camada **pre_processed** do datalake.
+
+**Métodos**
+
+1. pre_process_itr_dre
+2. load_bucket
+
 
 ## Dicionário de Dados
 
