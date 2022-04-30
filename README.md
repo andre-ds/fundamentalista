@@ -17,7 +17,7 @@ A primeira etapa consiste na extração dos dados de empresas disponíveis na CV
 Na segunda etapa, os dados são pré-processados e armazenados na camada **pre_processed** do datalake.
 
 
-## Estrtura da Aplicação
+## Estrutura da Aplicação
 
 ### Utils
 
