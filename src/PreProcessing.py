@@ -48,7 +48,6 @@ class PreProcessing(Utils):
         dataset = dataset.withColumn('DATA', to_date(lit(concat(col('ANO_REFERENCIA'), lit('-'), col('TRIMESTRE'), lit('-'), lit('01'))),'yyyy-M-dd'))
         ## Standarting ESCALA_MOEDA
         dataset = dataset.withColumn('VL_CONTA', when(col('ESCALA_MOEDA') == 'MIL', col('VL_CONTA')*1000).otherwise(col('VL_CONTA')))
-        dataset = dataset.withColumn('VL_CONTA', col('VL_CONTA').cast(IntegerType()))
         ## Standarting CD_CONTA
         dataset = dataset.join(dataset_aux, on=dataset.CD_CONTA == dataset_aux.codigo, how='inner')
         # Pivot dataset
