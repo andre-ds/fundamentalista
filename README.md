@@ -4,6 +4,11 @@ Este é um projeto cujo objetivo principal é o desenvolvimento de uma aplicaç�
 
 Os códigos têm a finalidade de realizar o provisionamento da infraestrutura necessária para armazenamento e execução das tarefas. Em um primeiro momento, as tarefas de extração de dados e pré-processamento serão realizadas localmente, no entanto, em um segundo momento, os códigos serão adaptados para funcionar 100% em cloud. A imagem a seguir apresenta o fluxo da aplicação de dados:
 
+## Status do Projeto
+
+![Pipeline de Dados](https://github.com/andre-ds/fundamentalist_analysis/blob/master/jira.jpg)
+
+
 ## Estrutura dos Dados
 
 ![Pipeline de Dados](https://github.com/andre-ds/fundamentalist_analysis/blob/master/application-flow.png)
@@ -51,21 +56,19 @@ O ITR é semlhante ao DFP, exeto pelo fato de conter informações contáveis tr
 * Demonstração das Mutações do Patrimônio Líquido (DMPL)
 * Demonstração de Resultado Abrangente (DRA)
 * Demonstração de Resultado (DRE)
+    * dfp_cia_aberta_2011.zip
+        * dfp_cia_aberta_DRE_con_2022.csv - Consolidada
+        * dfp_cia_aberta_DRE_ind_2022.csv - Individual
+
 * Demonstração de Valor Adicionado (DVA)
 
-#### Padrao de Denominação dos Arquivos
-* dfp_cia_aberta_2011.zip
-    * dfp_cia_aberta_DRE_con_2011.csv
-    * dfp_cia_aberta_DRE_con_2011.csv
+*Obs*:
+Consolidado: É referente aos dados do grupo econômico pela qual a empresa faz parte.
+Individual: Diz respeito a empresa que é a controladora de um grupo individual
 
-**(FCA)**
 
-Em construção...
+#### Links
 
-**(FRE)**
+* Dados Disponíves: http://dados.cvm.gov.br/
 
-Em construção...
-
-**(IPE)**
-
-Em construção...
+* Dicionário dos Dados: http://dados.cvm.gov.br/dataset/cia_aberta-doc-itr/resource/062b8f02-ca6b-424a-bf65-180ff2b69af2
