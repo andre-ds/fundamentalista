@@ -4,7 +4,7 @@ Este é um projeto cujo objetivo principal é o desenvolvimento de uma aplicaç�
 
 Os códigos têm a finalidade de realizar o provisionamento da infraestrutura necessária para armazenamento e execução das tarefas. Em um primeiro momento, as tarefas de extração de dados e pré-processamento serão realizadas localmente, no entanto, em um segundo momento, os códigos serão adaptados para funcionar 100% em cloud. A imagem a seguir apresenta o fluxo da aplicação de dados:
 
-## Status do Projeto
+## Status do Projeto no Jira
 
 ![Pipeline de Dados](https://github.com/andre-ds/fundamentalist_analysis/blob/master/jira.jpg)
 
