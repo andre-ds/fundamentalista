@@ -25,11 +25,15 @@ dataType = ['registration','itr']
 ex.extraction_cvm(dataType=dataType, years_list=dc.years_list)
 ex.unzippded_files(dataType=dataType)
 ex.saving_raw_data(dataType='itr_cia_aberta_DRE_con', filename='itr_dre', schema=dc.itr_dre)
+ex.saving_raw_data(dataType='itr_cia_aberta_BPP_con', filename='itr_bpp', schema=dc.itr_bp_ba)
+ex.saving_raw_data(dataType='itr_cia_aberta_BPA_con', filename='itr_bpa', schema=dc.itr_bp_ba)
 ex.load_bucket(s3env=s3, bucket='deepfi-raw', PATH=ex.PATH_RAW)
 
 # Pre-processing data
 ex.check_auxiliary_files(bucket='deepfi-auxiliary-data')
-pp.pre_process_itr_dre(dataType='itr_dre', years_list=dc.years_list)
+pp.pre_process_itr(dataType='itr_dre', years_list=dc.years_list)
+pp.pre_process_itr(dataType='itr_bpp', years_list=dc.years_list)
+pp.pre_process_itr(dataType='itr_bpa', years_list=dc.years_list)
 ex.load_bucket(s3env=s3, bucket='deepfi-pre-processed', PATH=ex.PATH_PRE_PROCESSED)
 
 # Loading
