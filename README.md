@@ -7,7 +7,7 @@ Os códigos têm a finalidade de realizar o provisionamento da infraestrutura ne
 
 # Estrutura dos Dados
 
-![Pipeline de Dados](https://github.com/andre-ds/fundamentalist_analysis/blob/master/application-flow.png)
+![Pipeline de Dados](./application-flow.png)
 
 
 ## **Camada raw** 
